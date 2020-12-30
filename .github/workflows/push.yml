@@ -16,6 +16,10 @@ jobs:
           args: --release --target wasm32-unknown-unknown
       - name: Build the stack
         run: docker-compose up -d
+      - name: Sleep for 30 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '5s'
       - name: Test access authorized 
         run: curl -H "token":"32323" 0.0.0.0:18000
       - name: Test access deny
