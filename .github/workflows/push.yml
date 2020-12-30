@@ -16,5 +16,7 @@ jobs:
           args: --release --target wasm32-unknown-unknown
       - name: Build the stack
         run: docker-compose up -d
-      - name: Test
+      - name: Test access authorized 
         run: curl -H "token":"32323" 0.0.0.0:18000
+      - name: Test access deny
+        run: curl -H "token":"323232" 0.0.0.0:18000
